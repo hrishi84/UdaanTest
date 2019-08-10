@@ -1,0 +1,12 @@
+var express = require('express')
+var cors = require('cors')
+var morgan = require('morgan')
+var bodyParser = require('body-parser')
+var routes = require('./routes')
+const app = express()
+
+app.use(bodyParser.json())
+app.use(morgan("combined"))
+app.use(cors())
+routes(app)
+app.listen(5000, () => {console.log("Runnig on port 5000")})
